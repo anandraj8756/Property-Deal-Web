@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vn)chjzj6^zy2fmcu31v$p!zft7_v0vx$ml+e!c4#%f8a1q06_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['anandupes.pythonanywhere.com']
 
 
 # Application definition
@@ -156,3 +156,8 @@ MESSAGE_TAGS = {
 #EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+
+try:
+    from .local_settings import *
+except ImportError:
+    print("looks like no local file. You must be on production")    
